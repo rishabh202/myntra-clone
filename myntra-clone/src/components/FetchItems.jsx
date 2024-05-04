@@ -8,29 +8,27 @@ const FetchItems = () => {
 
   useEffect(() => {
     if (fetchStatus.fetchDone) return;
-    const controller = new AbortController(); 
+    const controller = new AbortController();
     const signal = controller.singal;
-
     fetch("http://localhost:8080/items", { signal })
-    .then((res) => res.json())
-    .then(({ items }) => {
-      dispatch(itemsActions.addInitialItems(items));
-    });
+      .then((res) => res.json())
+      .then(({ items }) => {
+        dispatch(itemsActions.addInitialItems(items));
+      });
 
     return () => {
       controller.abort();
-
     };
   }, [fetchStatus]);
 
-  return (
-    <>
-      <div>
-        Fetch Done: {fetchStatus.fetchDone}
-        Currently Fetching: {fetchStatus.currentlyFetching}
-      </div>
-    </>
-  );
+  // return (
+  //   <>
+  //     <div>
+  //       Fetch Done: {fetchStatus.fetchDone}
+  //       Currently Fetching: {fetchStatus.currentlyFetching}
+  //     </div>
+  //   </>
+  // );
 };
 
 export default FetchItems;
