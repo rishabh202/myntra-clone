@@ -21,14 +21,7 @@ const FetchItems = () => {
     };
   }, [fetchStatus]);
 
-  // return (
-  //   <>
-  //     <div>
-  //       Fetch Done: {fetchStatus.fetchDone}
-  //       Currently Fetching: {fetchStatus.currentlyFetching}
-  //     </div>
-  //   </>
-  // );
+
 };
 
 export default FetchItems;
